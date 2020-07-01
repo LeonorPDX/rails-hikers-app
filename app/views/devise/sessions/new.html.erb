@@ -23,4 +23,11 @@
   </div>
 <% end %>
 
+<div>
+<br />
+<%= link_to "Sign In with GitHub", user_github_omniauth_authorize_path %>
+<br />
+<%= link_to "Sign In with Facebook", user_facebook_omniauth_authorize_path %>
+</div>
+
 <%= render "devise/shared/links" %>
