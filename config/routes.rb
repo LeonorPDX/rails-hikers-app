@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :check_ins
   resources :hikes
   resources :trailheads do
-    resources :hikes, only: [:show, :index, :new]
+    resources :hikes, only: [:show, :new]
   end
   root 'static#home'
   

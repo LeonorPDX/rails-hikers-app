@@ -11,7 +11,7 @@ Fees: <%= @trailhead.fees %> <br />
 <div>
 <ul>
 <% @hikes.each do |h| %>
-    <li><%= link_to h.name, hike_path(h) %></li>
+    <li><%= link_to h.name, trailhead_hike_path(@trailhead.id, h.id) %></li>
 <% end %>
 </ul>
 </div>
