@@ -1,0 +1,9 @@
+<h1>All Hikes</h1>
+
+<div>
+<ul>
+<% @hikes.each do |h| %>
+    <li><%= link_to h.name, hike_path(h) %></li>
+<% end %>
+</ul>
+</div>

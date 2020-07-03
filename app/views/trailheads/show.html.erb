@@ -1,0 +1,17 @@
+<h1><%= @trailhead.name %></h1>
+
+<div>
+Location: <%= @trailhead.location %> <br />
+Amenities: <%= @trailhead.amenities %> <br />
+Fees: <%= @trailhead.fees %> <br />
+</div>
+
+<h3>All Hikes at <%= @trailhead.name %></h3>
+
+<div>
+<ul>
+<% @hikes.each do |h| %>
+    <li><%= link_to h.name, hike_path(h) %></li>
+<% end %>
+</ul>
+</div>

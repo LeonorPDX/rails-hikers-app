@@ -1,0 +1,10 @@
+<h1><%= @hike.name %></h1>
+
+<div>
+Trailhead: <%= link_to @hike.trailhead.name, trailhead_path(@hike.trailhead) %> <br />
+Distance: <%= @hike.distance %> <br />
+Elevation Gain: <%= @hike.elevation_gain %> <br />
+Type: <%= @hike.hike_type %> <br />
+Difficulty: <%= @hike.difficulty %> <br />
+Description: <%= @hike.description %> <br />
+</div>
