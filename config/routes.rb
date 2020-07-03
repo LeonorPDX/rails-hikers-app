@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trip_reports
   resources :check_ins
   resources :hikes
   resources :trailheads

@@ -1,0 +1,2 @@
+class TripReport < ApplicationRecord
+end
