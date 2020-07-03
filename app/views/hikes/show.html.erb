@@ -6,5 +6,6 @@ Distance: <%= @hike.distance %> <br />
 Elevation Gain: <%= @hike.elevation_gain %> <br />
 Type: <%= @hike.hike_type %> <br />
 Difficulty: <%= @hike.difficulty %> <br />
+<br>
 Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
 </div>
