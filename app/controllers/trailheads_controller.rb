@@ -8,12 +8,6 @@ class TrailheadsController < ApplicationController
         @trailhead = Trailhead.find(params[:id])
         @hikes = @trailhead.hikes
     end
-
-    def hikes_index
-        @trailhead = Trailhead.find(params[:id])
-        @hikes = @trailhead.hikes
-        render template: 'hikes/index'
-    end
      
     def hike
         @trailhead = Trailhead.find(params[:id])
