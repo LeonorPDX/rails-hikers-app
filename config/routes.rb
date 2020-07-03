@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :check_ins
   resources :hikes
   resources :trailheads
   root 'static#home'
