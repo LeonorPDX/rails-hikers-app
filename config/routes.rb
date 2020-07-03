@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trailheads
   root 'static#home'
   
   devise_for :users, controllers: {registrations: "registrations", omniauth_callbacks: "callbacks"}

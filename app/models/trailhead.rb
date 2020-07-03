@@ -1,0 +1,2 @@
+class Trailhead < ApplicationRecord
+end
