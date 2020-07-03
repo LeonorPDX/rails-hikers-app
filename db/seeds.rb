@@ -43,6 +43,3 @@ Hike.create(name: "Angels Rest-Devils Rest Loop", difficulty: "Moderate", distan
 CheckIn.create(user_id: u.id, trailhead_id: th.id, check_in_date: Date.today)
 
 TripReport.create(user_id: u.id, hike_id: h.id, trip_report_date: Date.today, rating: 5, content: "Gorgeous day on the gorge, windy of course! Got there as soon as the trailhead opened at 6:00 AM and enjoyed the trail and views at Angels Rest to myself, didn't see any other hikers until last 30 min going back to the parking lot. By the time I was leaving at about 8:45 AM, the lot was about half full. Trail in good conidition despite the heavy rain we've been having!")
-    
-
-
