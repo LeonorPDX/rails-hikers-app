@@ -5,7 +5,7 @@ class CreateHikes < ActiveRecord::Migration[6.0]
       t.string :difficulty
       t.string :distance
       t.string :elevation_gain
-      t.string :type
+      t.string :hike_type
       t.text :description
 
       t.boolean :waterfalls, :default => false

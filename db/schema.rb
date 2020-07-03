@@ -10,7 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_154531) do
+ActiveRecord::Schema.define(version: 2020_07_03_170218) do
+
+  create_table "check_ins", force: :cascade do |t|
+    t.datetime "check_in_date"
+    t.integer "user_id"
+    t.integer "trailhead_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hikes", force: :cascade do |t|
+    t.string "name"
+    t.string "difficulty"
+    t.string "distance"
+    t.string "elevation_gain"
+    t.string "hike_type"
+    t.text "description"
+    t.boolean "waterfalls", default: false
+    t.boolean "wildflowers", default: false
+    t.boolean "mountains", default: false
+    t.boolean "beaches", default: false
+    t.boolean "family_friendly", default: false
+    t.boolean "dog_friendly", default: false
+    t.integer "user_id"
+    t.integer "trailhead_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trailheads", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "amenities"
+    t.string "fees"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trip_reports", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "hike_id"
+    t.datetime "trip_report_date"
+    t.text "content"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
