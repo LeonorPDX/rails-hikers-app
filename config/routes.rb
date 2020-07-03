@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :trip_reports
   resources :check_ins
   resources :hikes
-  resources :trailheads
+  resources :trailheads do
+    resources :hikes, only: [:show, :index, :new]
+  end
   root 'static#home'
   
   devise_for :users, controllers: {registrations: "registrations", omniauth_callbacks: "callbacks"}
