@@ -19,8 +19,11 @@ class HikesController < ApplicationController
 
     def create
         @hike = Hike.new(hike_params)
-        @hike.save
-        redirect_to hike_path(@hike)
+        if @hike.save
+            redirect_to hike_path(@hike)
+        else
+            redirect_to new_hike_path
+        end
     end
 
     private
