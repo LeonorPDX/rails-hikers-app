@@ -1,5 +1,22 @@
 <h2>New Hike Form</h2>
+
+<% if @hike.errors.any? %>
+  <div id="error_explanation">
+    <h4>
+      <%= pluralize(@hike.errors.count, "error") %>
+      prohibited this hike from being saved:
+    </h4>
+ 
+    <ul>
+    <% @hike.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@hike) do |f| %>
+
     <% if @hike.trailhead.nil? %>
         <label>Hike Trailhead:</label><br>
         <%= f.select :trailhead_id, options_from_collection_for_select(Trailhead.all, :id, :name) %><br>
@@ -7,6 +24,7 @@
     <% else %>
         <%= hidden_field_tag "hike[trailhead_id]", @hike.trailhead_id %>
     <% end %>
+
     <label>Hike Name:</label><br>
     <%= f.text_field :name %><br><br>
 

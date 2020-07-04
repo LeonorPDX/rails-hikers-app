@@ -1,4 +1,5 @@
 class HikesController < ApplicationController
+    before_action :authenticate_user!
 
     def index
         @hikes = Hike.all 
@@ -19,10 +20,13 @@ class HikesController < ApplicationController
 
     def create
         @hike = Hike.new(hike_params)
-        if @hike.save
+        @hike.user_id = current_user.id
+
+        if @hike.valid?
+            @hike.save
             redirect_to hike_path(@hike)
         else
-            redirect_to new_hike_path
+            render :new
         end
     end
 
@@ -41,7 +45,6 @@ class HikesController < ApplicationController
                                         :beaches,
                                         :dog_friendly,
                                         :family_friendly,
-                                        :user_id,
                                         :trailhead_id)
     end
 
