@@ -1,0 +1,5 @@
+<%= form_for(@hike) do |f| %>
+    <%= trailhead_id_field(@hike) %>
+    <br>
+    <label>Hike Name:</label><br>
+    <%= f.text_field :name %><br>

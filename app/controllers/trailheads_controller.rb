@@ -15,4 +15,16 @@ class TrailheadsController < ApplicationController
         render template: 'hikes/show'
     end
 
+    def new
+    end
+
+    def create
+    end
+
+    private
+
+    def trailhead_params
+
+    end
+
 end

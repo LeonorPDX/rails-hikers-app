@@ -9,4 +9,37 @@ class HikesController < ApplicationController
         @trailhead = @hike.trailhead
     end
 
+    def new
+        if params[:trailhead_id] && !Trailhead.exists?(params[:trailhead_id])
+          redirect_to trailheads_path, alert: "Trailhead not found."
+        else
+          @hike = Hike.new(trailhead_id: params[:trailhead_id])
+        end
+    end
+
+    def create
+        @hike = Hike.new(hike_params)
+        @hike.save
+        redirect_to hike_path(@hike)
+    end
+
+    private
+
+    def hike_params
+        params.require(:hike).permit(   :name,
+                                        :description,
+                                        :difficulty,
+                                        :distance,
+                                        :elevation_gain,
+                                        :hike_type,
+                                        :waterfalls,
+                                        :wildflowers,
+                                        :mountains,
+                                        :beaches,
+                                        :dog_friendly,
+                                        :family_friendly,
+                                        :user_id,
+                                        :trailhead_id)
+    end
+
 end
