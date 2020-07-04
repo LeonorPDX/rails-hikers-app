@@ -4,6 +4,10 @@ class User < ApplicationRecord
   has_many :trip_reports
   has_many :trailheads, through: :check_ins
 
+  validates :name, length: { minimum: 2 }
+  validates :email, uniqueness: true
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
