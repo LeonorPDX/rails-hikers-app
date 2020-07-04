@@ -14,8 +14,8 @@ Specs:
 - [x] Include logout (how e.g. Devise) -- Same, made with Devise
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth) -- Able to sign up with Facebook or Github
 - [x] Include nested resource show or index (URL e.g. users/2/recipes) -- Nested hike show page under trailhead
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new) -- Hike New nest under trailhead, sets hike.trailhead_id to the trailhead its nested under.
+- [x] Include form display of validation errors (form URL e.g. /recipes/new) -- Hike new form shows validation errors.
 
 Confirm:
 - [ ] The application is pretty DRY
