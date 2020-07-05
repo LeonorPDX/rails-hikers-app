@@ -1,5 +1,5 @@
 <h1><%= @hike.name %></h1>
-<i>Created by <%= @hike.user.name %></i>
+<i>Created by <%= link_to @hike.user.name, user_path(@hike.user) %></i>
 
 <div>
 Trailhead: <%= link_to @trailhead.name, trailhead_path(@trailhead) %> <br />
