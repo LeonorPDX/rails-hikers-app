@@ -30,6 +30,32 @@ class HikesController < ApplicationController
         end
     end
 
+    def edit
+        if params[:trailhead_id]
+          th = Trailhead.find_by(id: params[:trailhead_id])
+          if th.nil?
+            redirect_to trailheads_path, alert: "Trailhead not found."
+          else
+            @hike = th.hikes.find_by(id: params[:id])
+            redirect_to trailhead_hikes_path(th), alert: "Hike not found." if @hike.nil?
+          end
+        else
+          @hike = Hike.find(params[:id])
+        end
+    end
+    
+    def update
+        @hike = Hike.find(params[:id])
+    
+        @hike.update(hike_params)
+    
+        if @hike.save
+          redirect_to @hike
+        else
+          render :edit
+        end
+    end
+
     private
 
     def hike_params
