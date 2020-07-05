@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :trailheads do
     resources :hikes, only: [:show, :new]
   end
-  root 'static#home'
+  root 'application#home'
   
   devise_for :users, controllers: {registrations: "registrations", omniauth_callbacks: "callbacks"}
   devise_scope :user do 
