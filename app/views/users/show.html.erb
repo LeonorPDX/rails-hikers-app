@@ -22,7 +22,7 @@
     <h3><%= @user.name %>'s Check-Ins:</h3>
     <ul>
     <% @check_ins.each do |ch| %>
-        <li><%= ch.check_in_date %>: <%= ch.trailhead.name %></li>
+        <li><%= ch.format_date %>: <%= ch.trailhead.name %></li>
     <% end %>
     </ul>
 <% end %>
@@ -31,7 +31,7 @@
     <h3><%= @user.name %>'s Trip Reports:</h3>
     <ul>
     <% @trip_reports.each do |tr| %>
-        <li><%= tr.trip_report_date %>: <%= tr.hike.name %><br>
+        <li><%= tr.format_date %>: <%= tr.hike.name %><br>
         <%= tr.rating %> Stars<br>
         <%= tr.content %></li>
     <% end %>
