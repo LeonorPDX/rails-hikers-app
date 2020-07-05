@@ -1,6 +1,10 @@
 <h1>All Trailheads</h1>
 
 <div>
+<%= link_to "Create a New Trailhead", new_trailhead_path %>
+</div>
+
+<div>
 <ul>
 <% @trailheads.each do |th| %>
     <li><%= link_to th.name, trailhead_path(th) %></li>

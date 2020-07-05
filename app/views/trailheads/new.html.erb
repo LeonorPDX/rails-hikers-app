@@ -1,0 +1,31 @@
+<h2>New Trailhead Form</h2>
+
+<% if @trailhead.errors.any? %>
+  <div id="error_explanation">
+    <h4>
+      <%= pluralize(@trailhead.errors.count, "error") %>
+      prevented this trailhead from being saved:
+    </h4>
+ 
+    <ul>
+    <% @trailhead.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@trailhead) do |f| %>
+    <label>Trailhead Name:</label><br>
+    <%= f.text_field :name %><br><br>
+
+    <label>Location:</label><br>
+    <%= f.text_field :location %><br><br>
+
+    <label>Amenities:</label><br>
+    <%= f.text_field :amenities %><br><br>
+
+    <label>Fees or Permits:</label><br>
+    <%= f.text_field :fees %><br><br>
+    <%= f.submit %>
+<% end %>

@@ -4,7 +4,7 @@
   <div id="error_explanation">
     <h4>
       <%= pluralize(@hike.errors.count, "error") %>
-      prohibited this hike from being saved:
+      prevented this hike from being saved:
     </h4>
  
     <ul>
@@ -48,7 +48,7 @@
     <%= f.check_box :dog_friendly %>Dog-friendly<br>
     <%= f.check_box :family_friendly %>Family-friendly<br><br>
 
-    <label>Hike Description</label><br>
+    <label>Hike Description:</label><br>
     <%= f.text_area :description %><br><br>
     <%= f.submit %>
 <% end %>

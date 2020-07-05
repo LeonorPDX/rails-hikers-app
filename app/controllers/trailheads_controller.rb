@@ -16,15 +16,27 @@ class TrailheadsController < ApplicationController
     end
 
     def new
+        @trailhead = Trailhead.new
     end
 
     def create
+        @trailhead = Trailhead.new(trailhead_params)
+
+        if @trailhead.valid?
+            @trailhead.save
+            redirect_to trailhead_path(@trailhead)
+        else
+            render :new
+        end
     end
 
     private
 
     def trailhead_params
-
+        params.require(:trailhead).permit(   :name,
+                                            :location,
+                                            :amenities,
+                                            :fees)
     end
 
 end
