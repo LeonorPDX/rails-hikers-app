@@ -12,7 +12,10 @@ Fees: <%= @trailhead.fees %> <br />
 
 <div>
 <h3><%= @check_ins.length %> hikers have checked in here!</h3>
-Check in here today:
+<%= form_tag(check_ins_path, method: "post") do %>
+    <%= hidden_field_tag "trailhead_id", @trailhead.id %>
+    Here now? <%= submit_tag("Check In") %>
+<% end %>
 </div>
 
 
