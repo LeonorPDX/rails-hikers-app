@@ -8,10 +8,3 @@ The Hikers App is a place for outdoorsy folks to find trailheads and hikes, as w
 The Hikers App is a Rails web application created by Leonor Colbert as a portfolio project in association with Flatiron School's Online Software Engineering Program.
 </p>
 </div>
-
-<% unless user_signed_in? %>
-<div>
-<%= link_to "Log In", login_path %> <br />
-<%= link_to "Sign Up", signup_path %>
-</div>
-<% end %>

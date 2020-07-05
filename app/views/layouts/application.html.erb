@@ -10,6 +10,26 @@
   </head>
 
   <body>
+  <nav>
+    <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to "Search", root_path %></li>
+      <li><%= link_to "All Hikes", hikes_path %></li>
+      <li><%= link_to "All Trailheads", trailheads_path %></li>
+      <li><%= link_to "New Hike", new_hike_path %></li>
+      <li><%= link_to "Log Out", logout_path %></li>
+    <% else %>
+      <li><%= link_to "Sign Up", signup_path %></li>
+      <li><%= link_to "Log In", login_path %></li>
+      <li><a href="https://leonorpdx.github.io/cookbook_community_sinatra_project">Blog</a></li>
+      <li><a href="https://www.youtube.com/watch?v=4tjBlS7e9Ug">Video</a></li>
+      <li><a href="https://github.com/LeonorPDX/sinatra-crud-cookbook-community/">GitHub</a></li>
+    <% end %>
+    </ul>
+  </nav>
+  <br><br>
+  </header>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
