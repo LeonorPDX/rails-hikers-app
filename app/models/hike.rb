@@ -10,6 +10,10 @@ class Hike < ApplicationRecord
     validates :hike_type, presence: true
     validates :description, length: { in: 50..6000}
 
+    def self.search(query)
+        self.where("name LIKE ?", "%#{query}%")
+    end
+    
     def boolean_display
         display_text = nil
         arr = []

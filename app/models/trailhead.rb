@@ -8,4 +8,8 @@ class Trailhead < ApplicationRecord
     validates :amenities, presence: true
     validates :fees, presence: true
 
+    def self.search(query)
+        self.where("name LIKE ?", "%#{query}%")
+    end
+
 end
