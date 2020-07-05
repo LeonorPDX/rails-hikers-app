@@ -3,6 +3,6 @@ class TripReport < ApplicationRecord
     belongs_to :hike
 
     validates :content, length: { in: 10..1000 }
-    validate :trip_report_date, presence: true
-    validate :rating, presence: true
+    validates :trip_report_date, presence: true
+    validates :rating, presence: true
 end

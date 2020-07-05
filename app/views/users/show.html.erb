@@ -1,1 +1,39 @@
 <h1><%= @user.name %></h1>
+
+<% unless @hikes.empty? %>
+    <h3>Hikes Published by <%= @user.name %>:</h3>
+    <ul>
+    <% @hikes.each do |h| %>
+        <li><%= link_to h.name, hike_path(h) %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% unless @trailheads.empty? %>
+    <h3>Trailheads that <%= @user.name %> has been to:</h3>
+    <ul>
+    <% @trailheads.each do |th| %>
+        <li><%= link_to th.name, trailhead_path(th) %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% unless @check_ins.empty? %>
+    <h3><%= @user.name %>'s Check-Ins:</h3>
+    <ul>
+    <% @check_ins.each do |ch| %>
+        <li><%= ch.check_in_date %>: <%= ch.trailhead.name %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% unless @trip_reports.empty? %>
+    <h3><%= @user.name %>'s Trip Reports:</h3>
+    <ul>
+    <% @trip_reports.each do |tr| %>
+        <li><%= tr.trip_report_date %>: <%= tr.hike.name %><br>
+        <%= tr.rating %> Stars<br>
+        <%= tr.content %></li>
+    <% end %>
+    </ul>
+<% end %>
