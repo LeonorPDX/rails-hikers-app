@@ -24,3 +24,12 @@ Fees: <%= @trailhead.fees %> <br />
 <% else %>
     <h3>There are no hikes here yet! Add one by following the link above.</h3>
 <% end %>
+
+<% unless @check_ins.empty? %>
+    <h3><%= @trailhead.name %> Check-Ins:</h3>
+    <ul>
+    <% @check_ins.each do |ch| %>
+        <li><%= ch.format_date %>: <%= link_to ch.user.name, user_path(ch.user) %></li>
+    <% end %>
+    </ul>
+<% end %>

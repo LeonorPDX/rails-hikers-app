@@ -8,6 +8,7 @@ class HikesController < ApplicationController
     def show
         @hike = Hike.find_by(id: params[:id])
         @trailhead = @hike.trailhead
+        @trip_reports = @hike.trip_reports
     end
 
     def new

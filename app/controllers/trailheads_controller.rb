@@ -8,6 +8,7 @@ class TrailheadsController < ApplicationController
     def show
         @trailhead = Trailhead.find(params[:id])
         @hikes = @trailhead.hikes
+        @check_ins = @trailhead.check_ins
     end
      
     def hike
