@@ -1,0 +1,37 @@
+<%= form_for(form_hike) do |f| %>
+
+    <% if form_hike.trailhead.nil? %>
+        <label>Hike Trailhead:</label><br>
+        <%= f.select :trailhead_id, options_from_collection_for_select(Trailhead.all, :id, :name) %><br>
+        <i>Don't see your trailhead? Create a new trailhead <%= link_to "here.", new_trailhead_path %></i><br><br>
+    <% else %>
+        <%= hidden_field_tag "hike[trailhead_id]", form_hike.trailhead_id %>
+    <% end %>
+
+    <label>Hike Name:</label><br>
+    <%= f.text_field :name %><br><br>
+
+    <label>Difficulty:</label><br>
+    <%= f.select :difficulty, options_for_select([ ['Easy', 'Easy'], ['Moderate', 'Moderate'], ['Difficult', 'Difficult'] ]) %><br><br>
+
+    <label>Distance:</label><br>
+    <%= f.text_field :distance %><br><br>
+
+    <label>Elevation Gain:</label><br>
+    <%= f.text_field :elevation_gain %><br><br>
+
+    <label>Hike Type:</label><br>
+    <%= f.text_field :hike_type %><br><br>
+
+    <label>Hike Highlights, check all that apply:</label><br>
+    <%= f.check_box :waterfalls %>Waterfalls<br>
+    <%= f.check_box :wildflowers %>Wildflowers<br>
+    <%= f.check_box :mountains %>Mountains<br>
+    <%= f.check_box :beaches %>Beaches<br>
+    <%= f.check_box :dog_friendly %>Dog-friendly<br>
+    <%= f.check_box :family_friendly %>Family-friendly<br><br>
+
+    <label>Hike Description:</label><br>
+    <%= f.text_area :description %><br><br>
+    <%= f.submit %>
+<% end %>
