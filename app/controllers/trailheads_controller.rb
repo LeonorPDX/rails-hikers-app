@@ -1,4 +1,5 @@
 class TrailheadsController < ApplicationController
+    before_action :authenticate_user!
 
     def index
         @trailheads = Trailhead.all
