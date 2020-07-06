@@ -4,6 +4,7 @@ class CheckInsController < ApplicationController
         ch.user = current_user
         ch.check_in_date = Date.today
         ch.trailhead_id = params[:trailhead_id]
+        
         if ch.save
             redirect_to trailhead_path(ch.trailhead)
         else

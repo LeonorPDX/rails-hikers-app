@@ -57,6 +57,11 @@ class HikesController < ApplicationController
         end
     end
 
+    def destroy
+      Hike.find(params[:id]).destroy
+      redirect_to hikes_path
+    end
+
     private
 
     def hike_params

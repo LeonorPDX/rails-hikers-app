@@ -16,3 +16,5 @@
 <% end %>
 
 <%= render partial: "form", locals: {form_hike: @hike} %>
+
+<%= button_to "Delete Hike", hike_path(@hike), method: :delete %>
