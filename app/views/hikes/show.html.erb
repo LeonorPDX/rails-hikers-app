@@ -15,12 +15,13 @@ Highlights: <%= @hike.boolean_display %> <br />
 <br>
 Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
 </div>
-
+<br><br>
+<h3>Leave a Trip Report:</h3>
 <%= form_tag(trip_reports_path, method: "post") do %>
     <%= hidden_field_tag "hike_id", @hike.id %>
-    Rating: <%= select_tag :rating, options_for_select([ [''], ['5 Stars', 5], ['4 Stars', 4], ['3 Stars', 3], ['2 Stars', 2], ['1 Stars', 1] ]) %>
+    Rating: <%= select_tag :rating, options_for_select([ [''], ['5 Stars', 5], ['4 Stars', 4], ['3 Stars', 3], ['2 Stars', 2], ['1 Stars', 1] ]) %><br>
     Trip Report:<br>
-    <%= text_area_tag :content %>
+    <%= text_area_tag :content %><br>
     <%= submit_tag("Submit Trip Report") %>
 <% end %>
 
@@ -29,7 +30,9 @@ Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
     <ul>
     <% @trip_reports.each do |tr| %>
         <li><%= tr.format_date %>: <%= link_to tr.user.name, user_path(tr.user) %><br>
-        <%= tr.rating %> Stars<br>
+        <% if tr.rating %>
+            <%= tr.rating %> Stars<br>
+        <% end %>
         <%= tr.content %></li>
     <% end %>
     </ul>
