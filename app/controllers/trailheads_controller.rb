@@ -8,7 +8,7 @@ class TrailheadsController < ApplicationController
 
     def show
         @hikes = @trailhead.hikes
-        @check_ins = @trailhead.check_ins
+        @check_ins = @trailhead.check_ins.reverse
     end
      
     def hike
