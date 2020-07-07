@@ -21,18 +21,10 @@ The Hikers App is a Rails web application created by Leonor Colbert as a portfol
 
 <% if @trailheads %>
     <h3>Trailheads that fit your search:</h3>
-    <ul>
-    <% @trailheads.each do |th| %>
-        <li><%= link_to th.name, trailhead_path(th) %></li>
-    <% end %>
-    </ul>
+    <%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
 <% end %>
 
 <% if @hikes %>
     <h3>Hikes that fit your search:</h3>
-    <ul>
-    <% @hikes.each do |h| %>
-        <li><%= link_to h.name, hike_path(h) %></li>
-    <% end %>
-    </ul>
+    <%= render partial: "hikes/list", locals: {hikes: @hikes} %>
 <% end %>

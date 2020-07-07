@@ -5,9 +5,5 @@
 </div>
 
 <div>
-<ul>
-<% @hikes.each do |h| %>
-    <li><%= link_to h.name, hike_path(h) %></li>
-<% end %>
-</ul>
+<%= render partial: "list", locals: {hikes: @hikes} %>
 </div>

@@ -1,0 +1,5 @@
+<ul>
+<% hikes.each do |h| %>
+    <li><%= link_to h.name, trailhead_hike_path(h.trailhead, h) %></li>
+<% end %>
+</ul>

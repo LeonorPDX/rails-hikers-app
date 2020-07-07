@@ -1,4 +1,4 @@
-<h2>New Trailhead Form</h2>
+<h2>Edit <%= @trailhead.name %></h2>
 
 <% if @trailhead.errors.any? %>
   <div id="error_explanation">
@@ -16,3 +16,6 @@
 <% end %>
 
 <%= render partial: "form", locals: {trailhead: @trailhead} %>
+
+
+<%= button_to "Delete Trailhead", trailhead_path(@trailhead), method: :delete %>

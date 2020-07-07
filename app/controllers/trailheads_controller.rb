@@ -1,18 +1,17 @@
 class TrailheadsController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_trailhead, except: [:index, :new, :create]
 
     def index
         @trailheads = Trailhead.all
     end
 
     def show
-        @trailhead = Trailhead.find(params[:id])
         @hikes = @trailhead.hikes
         @check_ins = @trailhead.check_ins
     end
      
     def hike
-        @trailhead = Trailhead.find(params[:id])
         @hike = Hike.find(params[:hike_id])
         render template: 'hikes/show'
     end
@@ -23,6 +22,7 @@ class TrailheadsController < ApplicationController
 
     def create
         @trailhead = Trailhead.new(trailhead_params)
+        @trailhead.creator_id = current_user.id
 
         if @trailhead.valid?
             @trailhead.save
@@ -30,6 +30,24 @@ class TrailheadsController < ApplicationController
         else
             render :new
         end
+    end
+
+    def edit
+    end
+    
+    def update    
+        @trailhead.update(trailhead_params)
+    
+        if @trailhead.save
+          redirect_to @trailhead
+        else
+          render :edit
+        end
+    end
+
+    def destroy
+      @trailhead.destroy
+      redirect_to trailheads_path
     end
 
     private

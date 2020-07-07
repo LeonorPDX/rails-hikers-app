@@ -5,9 +5,5 @@
 </div>
 
 <div>
-<ul>
-<% @trailheads.each do |th| %>
-    <li><%= link_to th.name, trailhead_path(th) %></li>
-<% end %>
-</ul>
+<%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
 </div>

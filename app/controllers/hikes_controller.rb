@@ -1,12 +1,12 @@
 class HikesController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_hike, except: [:index, :new, :create]
 
     def index
         @hikes = Hike.all 
     end
 
     def show
-        @hike = Hike.find_by(id: params[:id])
         @trailhead = @hike.trailhead
         @trip_reports = @hike.trip_reports
     end
@@ -40,14 +40,10 @@ class HikesController < ApplicationController
             @hike = th.hikes.find_by(id: params[:id])
             redirect_to trailhead_hikes_path(th), alert: "Hike not found." if @hike.nil?
           end
-        else
-          @hike = Hike.find(params[:id])
         end
     end
     
     def update
-        @hike = Hike.find(params[:id])
-    
         @hike.update(hike_params)
     
         if @hike.save
@@ -58,7 +54,7 @@ class HikesController < ApplicationController
     end
 
     def destroy
-      Hike.find(params[:id]).destroy
+      @hike.destroy
       redirect_to hikes_path
     end
 

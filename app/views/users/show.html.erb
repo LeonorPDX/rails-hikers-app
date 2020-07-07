@@ -2,20 +2,12 @@
 
 <% unless @hikes.empty? %>
     <h3>Hikes Published by <%= @user.name %>:</h3>
-    <ul>
-    <% @hikes.each do |h| %>
-        <li><%= link_to h.name, hike_path(h) %></li>
-    <% end %>
-    </ul>
+    <%= render partial: "hikes/list", locals: {hikes: @hikes} %>
 <% end %>
 
 <% unless @trailheads.empty? %>
     <h3>Trailheads that <%= @user.name %> has been to:</h3>
-    <ul>
-    <% @trailheads.each do |th| %>
-        <li><%= link_to th.name, trailhead_path(th) %></li>
-    <% end %>
-    </ul>
+    <%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
 <% end %>
 
 <% unless @check_ins.empty? %>

@@ -1,4 +1,7 @@
 <h1><%= @trailhead.name %></h1>
+<% if @trailhead.creator_id == current_user.id %>
+    <%= link_to "Edit Trailhead", edit_trailhead_path(@trailhead) %>
+<% end %>
 
 <div>
 Location: <%= @trailhead.location %> <br />
@@ -12,22 +15,18 @@ Fees: <%= @trailhead.fees %> <br />
 
 <div>
 <h3><%= @check_ins.length %> hikers have checked in here!</h3>
+
 <%= form_tag(check_ins_path, method: "post") do %>
     <%= hidden_field_tag "trailhead_id", @trailhead.id %>
-    Here now? <%= submit_tag("Check In") %>
+    Here today? <%= submit_tag("Check In") %>
 <% end %>
 </div>
 
 
 <% unless @hikes.empty? %>
     <h3>All Hikes at <%= @trailhead.name %></h3>
-
     <div>
-    <ul>
-    <% @hikes.each do |h| %>
-        <li><%= link_to h.name, trailhead_hike_path(@trailhead.id, h.id) %></li>
-    <% end %>
-    </ul>
+    <%= render partial: "hikes/list", locals: {hikes: @hikes} %>
     </div>
 <% else %>
     <h3>There are no hikes here yet! Add one by following the link above.</h3>
