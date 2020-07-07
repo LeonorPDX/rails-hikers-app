@@ -28,6 +28,7 @@ class TrailheadsController < ApplicationController
             @trailhead.save
             redirect_to trailhead_path(@trailhead)
         else
+            flash[:errors] = @trailhead.errors.full_messages
             render :new
         end
     end
@@ -41,6 +42,7 @@ class TrailheadsController < ApplicationController
         if @trailhead.save
           redirect_to @trailhead
         else
+          flash[:errors] = @trailhead.errors.full_messages
           render :edit
         end
     end

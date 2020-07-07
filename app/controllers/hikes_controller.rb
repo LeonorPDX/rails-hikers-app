@@ -27,6 +27,7 @@ class HikesController < ApplicationController
             @hike.save
             redirect_to hike_path(@hike)
         else
+            flash[:errors] = @hike.errors.full_messages
             render :new
         end
     end
@@ -49,6 +50,7 @@ class HikesController < ApplicationController
         if @hike.save
           redirect_to @hike
         else
+          flash[:errors] = @hike.errors.full_messages
           render :edit
         end
     end

@@ -1,19 +1,6 @@
 <h2>Edit <%= @trailhead.name %></h2>
 
-<% if @trailhead.errors.any? %>
-  <div id="error_explanation">
-    <h4>
-      <%= pluralize(@trailhead.errors.count, "error") %>
-      prevented this trailhead from being saved:
-    </h4>
- 
-    <ul>
-    <% @trailhead.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render "application/errors" %>
 
 <%= render partial: "form", locals: {trailhead: @trailhead} %>
 
