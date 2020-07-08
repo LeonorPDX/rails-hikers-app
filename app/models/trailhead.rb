@@ -12,4 +12,8 @@ class Trailhead < ApplicationRecord
         self.where("name LIKE ?", "%#{query}%")
     end
 
+    def self.most_check_ins
+        joins(:check_ins).group("trailheads.id").order("COUNT(*) DESC").select("trailheads.*").limit(1)
+    end
+
 end

@@ -3,7 +3,7 @@ class HikesController < ApplicationController
     before_action :set_hike, except: [:index, :new, :create]
 
     def index
-        @hikes = Hike.all 
+        @hikes = Hike.all.sort_by{ |h| h.name }
     end
 
     def show

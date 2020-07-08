@@ -3,7 +3,7 @@ class TrailheadsController < ApplicationController
     before_action :set_trailhead, except: [:index, :new, :create]
 
     def index
-        @trailheads = Trailhead.all
+        @trailheads = Trailhead.all.sort_by{ |th| th.name }
     end
 
     def show
