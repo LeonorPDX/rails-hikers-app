@@ -14,6 +14,30 @@ class Hike < ApplicationRecord
         self.where("name LIKE ?", "%#{query}%")
     end
     
+    def self.family_friendly
+        where(family_friendly: true)
+    end
+
+    def self.dog_friendly
+        where(dog_friendly: true)
+    end
+
+    def self.beaches
+        where(beaches: true)
+    end
+
+    def self.wildflowers
+        where(wildflowers: true)
+    end
+
+    def self.mountains
+        where(mountains: true)
+    end
+
+    def self.waterfalls
+        where(waterfalls: true)
+    end
+    
     def boolean_display
         display_text = nil
         arr = []
