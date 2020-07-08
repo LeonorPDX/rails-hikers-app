@@ -5,5 +5,10 @@
 </div>
 
 <div>
+<h3>Want the most popular trailhead?</h3>
+<%= link_to "Click here", trailheads_most_check_ins_path %> to view the trailhead with the most check-ins.
+</div>
+
+<div>
 <%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
 </div>

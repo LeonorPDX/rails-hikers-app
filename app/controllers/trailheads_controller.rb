@@ -1,12 +1,17 @@
 class TrailheadsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_trailhead, except: [:index, :new, :create]
+    before_action :set_trailhead, except: [:index, :new, :create, :show]
 
     def index
         @trailheads = Trailhead.all.sort_by{ |th| th.name }
     end
 
     def show
+        if params[:id] == "most-check-ins"
+            @trailhead = Trailhead.most_check_ins.first
+        else
+            set_trailhead
+        end
         @hikes = @trailhead.hikes
         @check_ins = @trailhead.check_ins.reverse
     end

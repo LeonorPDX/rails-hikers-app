@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :hikes, only: [:show, :new]
   end
   root 'application#home'
+
+  get 'trailheads/most-check-ins' => 'trailheads#show'
   
   devise_for :users, controllers: {registrations: "registrations", omniauth_callbacks: "callbacks"}
   devise_scope :user do 
