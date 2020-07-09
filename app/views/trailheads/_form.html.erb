@@ -1,14 +1,14 @@
 <%= form_for(trailhead) do |f| %>
-    <label>Trailhead Name:</label><br>
+    <label class="label">Trailhead Name:</label><br>
     <%= f.text_field :name %><br><br>
 
-    <label>Location:</label><br>
+    <label class="label">Location:</label><br>
     <%= f.text_field :location %><br><br>
 
-    <label>Amenities:</label><br>
+    <label class="label">Amenities:</label><br>
     <%= f.text_field :amenities %><br><br>
 
-    <label>Fees or Permits:</label><br>
+    <label class="label">Fees or Permits:</label><br>
     <%= f.text_field :fees %><br><br>
     <input type="submit" value="Submit" class="button is-primary">
 <% end %>

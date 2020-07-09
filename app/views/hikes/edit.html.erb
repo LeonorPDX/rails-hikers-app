@@ -4,4 +4,8 @@
 
 <%= render partial: "form", locals: {form_hike: @hike} %>
 
-<%= button_to "Delete Hike", hike_path(@hike), method: :delete %>
+<br>
+
+<%= form_tag(hike_path(@hike), method: "delete") do %>
+    <input type="submit" value="Delete" class="button is-danger is-small">
+<% end %>

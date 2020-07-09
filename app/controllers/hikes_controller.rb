@@ -1,6 +1,7 @@
 class HikesController < ApplicationController
     before_action :authenticate_user!
     before_action :set_hike, except: [:index, :new, :create]
+    skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
       if params[:filter]

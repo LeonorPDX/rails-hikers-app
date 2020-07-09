@@ -4,5 +4,8 @@
 
 <%= render partial: "form", locals: {trailhead: @trailhead} %>
 
+<br>
 
-<%= button_to "Delete Trailhead", trailhead_path(@trailhead), method: :delete %>
+<%= form_tag(trailhead_path(@trailhead), method: "delete") do %>
+    <input type="submit" value="Delete" class="button is-danger is-small">
+<% end %>
