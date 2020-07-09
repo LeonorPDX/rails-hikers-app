@@ -1,6 +1,13 @@
-<h1><%= @trailhead.name %></h1>
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title"><%= @trailhead.name %></h1>
+        </div>
+    </div>
+</section>
+<br>
 <% if @trailhead.creator_id == current_user.id %>
-    <%= link_to "Edit Trailhead", edit_trailhead_path(@trailhead) %>
+    <%= link_to "Edit Trailhead", edit_trailhead_path(@trailhead) %> <br>
 <% end %>
 
 <div>
@@ -8,11 +15,11 @@ Location: <%= @trailhead.location %> <br />
 Amenities: <%= @trailhead.amenities %> <br />
 Fees: <%= @trailhead.fees %> <br />
 </div>
-
+<br>
 <div>
 <%= link_to "New Hike", new_trailhead_hike_path(@trailhead) %>
 </div>
-
+<br>
 <div>
 <h3><%= @check_ins.length %> hikers have checked in here!</h3>
 

@@ -1,29 +1,29 @@
 <%= form_for(form_hike) do |f| %>
 
     <% if form_hike.trailhead.nil? %>
-        <label class="label">Hike Trailhead:</label><br>
+        <label class="label">Hike Trailhead:</label>
         <%= f.select :trailhead_id, options_from_collection_for_select(Trailhead.all, :id, :name) %><br>
         <i>Don't see your trailhead? Create a new trailhead <%= link_to "here.", new_trailhead_path %></i><br><br>
     <% else %>
         <%= hidden_field_tag "hike[trailhead_id]", form_hike.trailhead_id %>
     <% end %>
 
-    <label class="label">Hike Name:</label><br>
+    <label class="label">Hike Name:</label>
     <%= f.text_field :name %><br><br>
 
-    <label class="label">Difficulty:</label><br>
+    <label class="label">Difficulty:</label>
     <%= f.select :difficulty, options_for_select([ ['Easy', 'Easy'], ['Moderate', 'Moderate'], ['Difficult', 'Difficult'] ]) %><br><br>
 
-    <label class="label">Distance:</label><br>
+    <label class="label">Distance:</label>
     <%= f.text_field :distance %><br><br>
 
-    <label class="label">Elevation Gain:</label><br>
+    <label class="label">Elevation Gain:</label>
     <%= f.text_field :elevation_gain %><br><br>
 
-    <label class="label">Hike Type:</label><br>
+    <label class="label">Hike Type:</label>
     <%= f.text_field :hike_type %><br><br>
 
-    <label class="label">Hike Highlights, check all that apply:</label><br>
+    <label class="label">Hike Highlights, check all that apply:</label>
     <%= f.check_box :waterfalls %>  Waterfalls<br>
     <%= f.check_box :wildflowers %>  Wildflowers<br>
     <%= f.check_box :mountains %>  Mountains<br>
@@ -31,7 +31,7 @@
     <%= f.check_box :dog_friendly %>  Dog-friendly<br>
     <%= f.check_box :family_friendly %>  Family-friendly<br><br>
 
-    <label class="label">Hike Description:</label><br>
+    <label class="label">Hike Description:</label>
     <%= f.text_area :description, size: "100x30" %><br><br>
     <input type="submit" value="Submit" class="button is-primary">
 <% end %>

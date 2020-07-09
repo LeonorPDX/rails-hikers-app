@@ -1,9 +1,15 @@
-<h1>All Hikes</h1>
-
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">All Hikes</h1>
+        </div>
+    </div>
+</section>
+<br>
 <div>
 <%= link_to "Create a New Hike", new_hike_path %>
 </div>
-
+<br>
 <div>
 <%= form_tag(hikes_path, method: "get") do %>
     <h3>Filter hikes by features:</h3>

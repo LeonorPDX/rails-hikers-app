@@ -1,4 +1,11 @@
-<h2>Edit <%= @hike.name %></h2>
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="subtitle">Edit <%= @hike.name %></h2>
+        </div>
+    </div>
+</section>
+<br>
 
 <%= render "application/errors" %>
 
@@ -7,5 +14,5 @@
 <br>
 
 <%= form_tag(hike_path(@hike), method: "delete") do %>
-    <input type="submit" value="Delete" class="button is-danger is-small">
+    <input type="submit" value="Delete" class="button is-danger">
 <% end %>

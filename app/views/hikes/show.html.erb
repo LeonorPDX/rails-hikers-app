@@ -1,9 +1,17 @@
-<h1><%= @hike.name %></h1>
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title"><%= @hike.name %></h1>
+        </div>
+    </div>
+</section>
+<br>
 <% if @hike.user == current_user %>
     <%= link_to "Edit Hike", edit_hike_path(@hike) %>
 <% else %>
     <i>Created by <%= link_to @hike.user.name, user_path(@hike.user) %></i>
 <% end %>
+<br><br>
 
 <div>
 Trailhead: <%= link_to @trailhead.name, trailhead_path(@trailhead) %> <br />
@@ -24,7 +32,7 @@ Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
     Rating: <%= select_tag :rating, options_for_select([ [''], ['5 Stars', 5], ['4 Stars', 4], ['3 Stars', 3], ['2 Stars', 2], ['1 Stars', 1] ]) %><br>
     Trip Report:<br>
     <textarea name="content", rows="10", cols="80"></textarea><br>
-    <input type="submit" value="Submit Trip Report" class="button is-primary is-small">
+    <input type="submit" value="Submit Trip Report" class="button is-primary">
 <% end %>
 
 <% unless @trip_reports.empty? %>
