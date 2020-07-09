@@ -11,7 +11,7 @@ Distance: <%= @hike.distance %> <br />
 Elevation Gain: <%= @hike.elevation_gain %> <br />
 Type: <%= @hike.hike_type %> <br />
 Difficulty: <%= @hike.difficulty %> <br />
-Highlights: <%= @hike.boolean_display %> <br />
+Highlights: <%= boolean_display @hike %> <br />
 <br>
 Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
 </div>
