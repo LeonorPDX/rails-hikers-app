@@ -5,5 +5,13 @@
 </div>
 
 <div>
+<%= form_tag(hikes_path, method: "get") do %>
+    <h3>Filter hikes by features:</h3>
+    <%= select_tag :filter, options_for_select([ ['Mountains'], ['Beaches'], ['Waterfalls'], ['Wildflowers'], ['Family-friendly'], ['Dog-friendly'] ]) %><br><br>
+    <%= submit_tag("Filter Hikes") %><br>
+<% end %>
+</div>
+
+<div>
 <%= render partial: "list", locals: {hikes: @hikes} %>
 </div>

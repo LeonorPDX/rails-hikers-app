@@ -3,7 +3,24 @@ class HikesController < ApplicationController
     before_action :set_hike, except: [:index, :new, :create]
 
     def index
+      if params[:filter]
+        case params[:filter]
+        when 'Wildflowers'
+          @hikes = Hike.wildflowers
+        when 'Beaches'
+          @hikes = Hike.beaches
+        when 'Mountains'
+          @hikes = Hike.mountains
+        when 'Waterfalls'
+          @hikes = Hike.waterfalls
+        when 'Family-friendly'
+          @hikes = Hike.family_friendly
+        when 'Dog-friendly'
+          @hikes = Hike.dog_friendly
+        end
+      else
         @hikes = Hike.all.sort_by{ |h| h.name }
+      end
     end
 
     def show
