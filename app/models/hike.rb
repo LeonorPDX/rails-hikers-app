@@ -8,7 +8,7 @@ class Hike < ApplicationRecord
     validates :distance, presence: true
     validates :elevation_gain, presence: true
     validates :hike_type, presence: true
-    validates :description, length: { in: 50..6000}
+    validates :description, length: { in: 50..20000}
 
     def self.search(query)
         self.where("name LIKE ?", "%#{query}%")

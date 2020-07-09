@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
     helper_method :set_hike, :set_trailhead
-    add_flash_types :message
 
 
     def home 
