@@ -29,7 +29,7 @@ Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
     <h3><%= @hike.name %> Trip Reports:</h3>
     <ul>
     <% @trip_reports.each do |tr| %>
-        <li><%= tr.format_date %>: <%= link_to tr.user.name, user_path(tr.user) %><br>
+        <li><%= format_tr_date tr %>: <%= link_to tr.user.name, user_path(tr.user) %><br>
         <% if tr.rating %>
             <%= tr.rating %> Stars<br>
         <% end %>

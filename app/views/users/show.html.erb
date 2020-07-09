@@ -23,7 +23,7 @@
     <h3><%= @user.name %>'s Trip Reports:</h3>
     <ul>
     <% @trip_reports.each do |tr| %>
-        <li><%= tr.format_date %>: <%= link_to tr.hike.name, hike_path(tr.hike) %><br>
+        <li><%= format_tr_date tr %>: <%= link_to tr.hike.name, hike_path(tr.hike) %><br>
         <%= tr.rating %> Stars<br>
         <%= tr.content %></li>
     <% end %>
