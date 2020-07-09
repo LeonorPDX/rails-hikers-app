@@ -11,7 +11,7 @@ class Hike < ApplicationRecord
     validates :description, length: { in: 50..20000}
 
     def self.search(query)
-        self.where("name LIKE ?", "%#{query}%")
+        where("name LIKE ?", "%#{query}%")
     end
     
     def self.family_friendly

@@ -11,6 +11,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'dotenv-rails'
+gem "bulma-rails", "~> 0.9.0"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'

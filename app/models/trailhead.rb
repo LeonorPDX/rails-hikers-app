@@ -9,7 +9,7 @@ class Trailhead < ApplicationRecord
     validates :fees, presence: true
 
     def self.search(query)
-        self.where("name LIKE ?", "%#{query}%")
+        where("name LIKE ?", "%#{query}%")
     end
 
     def self.most_check_ins

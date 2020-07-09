@@ -18,7 +18,7 @@ Fees: <%= @trailhead.fees %> <br />
 
 <%= form_tag(check_ins_path, method: "post") do %>
     <%= hidden_field_tag "trailhead_id", @trailhead.id %>
-    Here today? <%= submit_tag("Check In") %>
+    Here today? <input type="submit" value="Check In" class="button is-primary is-small">
 <% end %>
 </div>
 

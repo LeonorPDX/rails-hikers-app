@@ -15,14 +15,16 @@ Highlights: <%= boolean_display @hike %> <br />
 <br>
 Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
 </div>
+
 <br><br>
+
 <h3>Leave a Trip Report:</h3>
 <%= form_tag(trip_reports_path, method: "post") do %>
     <%= hidden_field_tag "hike_id", @hike.id %>
     Rating: <%= select_tag :rating, options_for_select([ [''], ['5 Stars', 5], ['4 Stars', 4], ['3 Stars', 3], ['2 Stars', 2], ['1 Stars', 1] ]) %><br>
     Trip Report:<br>
-    <%= text_area_tag :content %><br>
-    <%= submit_tag("Submit Trip Report") %>
+    <textarea name="content", rows="10", cols="80"></textarea><br>
+    <input type="submit" value="Submit Trip Report" class="button is-primary is-small">
 <% end %>
 
 <% unless @trip_reports.empty? %>
