@@ -14,7 +14,7 @@
     <h3><%= @user.name %>'s Check-Ins:</h3>
     <ul>
     <% @check_ins.each do |ch| %>
-        <li><%= ch.format_date %>: <%= ch.trailhead.name %></li>
+        <li><%= format_ch_date ch %>: <%= ch.trailhead.name %></li>
     <% end %>
     </ul>
 <% end %>
