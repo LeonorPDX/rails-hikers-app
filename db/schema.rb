@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_174531) do
+ActiveRecord::Schema.define(version: 2020_07_11_211940) do
 
   create_table "check_ins", force: :cascade do |t|
     t.datetime "check_in_date"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_174531) do
     t.integer "trailhead_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_url"
   end
 
   create_table "trailheads", force: :cascade do |t|

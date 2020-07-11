@@ -93,6 +93,7 @@ class HikesController < ApplicationController
                                         :beaches,
                                         :dog_friendly,
                                         :family_friendly,
+                                        :image_url,
                                         :trailhead_id)
     end
 

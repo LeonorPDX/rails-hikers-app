@@ -13,16 +13,29 @@
 <% end %>
 <br><br>
 
-<div>
-<strong>Trailhead:</strong> <%= link_to @trailhead.name, trailhead_path(@trailhead) %> <br />
-<strong>Distance:</strong> <%= @hike.distance %> <br />
-<strong>Elevation Gain:</strong> <%= @hike.elevation_gain %> <br />
-<strong>Type:</strong> <%= @hike.hike_type %> <br />
-<strong>Difficulty:</strong> <%= @hike.difficulty %> <br />
-<strong>Highlights:</strong> <%= boolean_display @hike %> <br />
-<br>
-<strong>Description:</strong><br>
-<%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
+<div class="columns">
+<div class="column">
+    <div>
+    <strong>Trailhead:</strong> <%= link_to @trailhead.name, trailhead_path(@trailhead) %> <br>
+    <strong>Distance:</strong> <%= @hike.distance %> <br>
+    <strong>Elevation Gain:</strong> <%= @hike.elevation_gain %> <br>
+    <strong>Type:</strong> <%= @hike.hike_type %> <br>
+    <strong>Difficulty:</strong> <%= @hike.difficulty %> <br>
+    <strong>Highlights:</strong> <%= boolean_display @hike %> <br>
+    <br>
+    <strong>Description:</strong><br>
+    <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
+    </div>
+</div>
+<div class="column">
+    <% if @hike.image_url %>
+    <figure>
+        <p class="image">
+            <img src= "<%= @hike.image_url %>" >
+        </p>
+    </figure>
+    <% end %>
+</div>
 </div>
 
 <br><br>
