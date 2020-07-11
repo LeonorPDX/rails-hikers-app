@@ -7,18 +7,6 @@
     </div>
 </section>
 <br>
-<% if user_signed_in? %>
-<section class="content">
-    <div>
-    <%= form_tag(root_path, method: "get") do %>
-        <%= label_tag(:query, "Search for Hike or Trailheads:") %>
-        <%= text_field_tag(:query) %>
-        <input type="submit" value="Search" class="button is-primary is-small">
-    <% end %>
-    </div>
-</section>
-<% end %>
-
 <section class="content">
 <div>
 <p>
@@ -30,17 +18,17 @@ The Hikers App is a Rails web application created by Leonor Colbert as a portfol
 </div>
 </section>
 
-<% unless @trailheads.empty? %>
+<% if @trailheads && !@trailheads.empty? %>
     <h3>Trailheads that fit your search:</h3>
     <%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
 <% end %>
 
-<% unless @hikes.empty? %>
+<% if @hikes && !@hikes.empty? %>
     <h3>Hikes that fit your search:</h3>
     <%= render partial: "hikes/list", locals: {hikes: @hikes} %>
 <% end %>
 
-<% if @hikes.empty? && @trailheads.empty? %>
+<% if @hikes && @hikes.empty? && @trailheads && @trailheads.empty? %>
     <h3>No hikes or trailheads fit your search.</h3>
     <p>Try a different search term and search again.</p>
 <% end %>

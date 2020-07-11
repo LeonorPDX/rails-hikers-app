@@ -14,18 +14,20 @@
 <br><br>
 
 <div>
-Trailhead: <%= link_to @trailhead.name, trailhead_path(@trailhead) %> <br />
-Distance: <%= @hike.distance %> <br />
-Elevation Gain: <%= @hike.elevation_gain %> <br />
-Type: <%= @hike.hike_type %> <br />
-Difficulty: <%= @hike.difficulty %> <br />
-Highlights: <%= boolean_display @hike %> <br />
+<strong>Trailhead:</strong> <%= link_to @trailhead.name, trailhead_path(@trailhead) %> <br />
+<strong>Distance:</strong> <%= @hike.distance %> <br />
+<strong>Elevation Gain:</strong> <%= @hike.elevation_gain %> <br />
+<strong>Type:</strong> <%= @hike.hike_type %> <br />
+<strong>Difficulty:</strong> <%= @hike.difficulty %> <br />
+<strong>Highlights:</strong> <%= boolean_display @hike %> <br />
 <br>
-Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
+<strong>Description:</strong><br>
+<%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
 </div>
 
 <br><br>
 
+<section class="content">
 <h3>Leave a Trip Report:</h3>
 <%= form_tag(trip_reports_path, method: "post") do %>
     <%= hidden_field_tag "hike_id", @hike.id %>
@@ -34,16 +36,33 @@ Description: <%= @hike.description.gsub(/\n/, '<br>').html_safe %> <br />
     <textarea name="content", rows="10", cols="80"></textarea><br>
     <input type="submit" value="Submit Trip Report" class="button is-primary">
 <% end %>
+<br>
+</section>
 
 <% unless @trip_reports.empty? %>
     <h3><%= @hike.name %> Trip Reports:</h3>
-    <ul>
+    
     <% @trip_reports.each do |tr| %>
-        <li><%= format_tr_date tr %>: <%= link_to tr.user.name, user_path(tr.user) %><br>
-        <% if tr.rating %>
-            <%= tr.rating %> Stars<br>
-        <% end %>
-        <%= tr.content %></li>
+
+        <article class="media">
+            <figure class="media-left">
+                <p class="image is-64x64">
+                    <img src="https://i.imgur.com/BL0Uz4V.png">
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                <p>
+                    <strong><%= format_tr_date tr %>: <%= link_to tr.user.name, user_path(tr.user) %></strong><br>
+                    <% if tr.rating %>
+                        <%= tr.rating %> Stars<br>
+                    <% end %>
+                    <br>
+                    <%= tr.content %>
+                </p>
+                </div>
+            </div>
+        </article>
+
     <% end %>
-    </ul>
 <% end %>

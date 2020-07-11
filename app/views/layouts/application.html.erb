@@ -14,40 +14,52 @@
   <body>
 
   <header>
-  <nav class="level" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+  <br>
+  <nav class="level">
       <% if user_signed_in? %>
-        <p class="level-item has-text-centered">
-        <a class="navbar-item"><%= link_to "Search", root_path %></a>
+      <div class="level-left"> 
+        <p class="level-item">
+          <%= form_tag(root_path, method: "get") do %>
+            <input class="input" type="text" name="query" id="query" placeholder="Find a hike">
+            <input type="submit" value="Search" class="button is-primary">
+          <% end %>
         </p>
-        <p class="level-item has-text-centered">
+
+        <p class="level-item">
+        <a class="navbar-item"><%= link_to "About", root_path %></a>
+        </p>
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "All Hikes", hikes_path %></a>
         </p>
-        <p class="level-item has-text-centered">
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "All Trailheads", trailheads_path %></a>
         </p>
-        <p class="level-item has-text-centered">
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "New Hike", new_hike_path %></a>
         </p>
-        <p class="level-item has-text-centered">
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "Log Out", logout_path %></a>
         </p>
+        </div>
+
       <% else %>
-        <p class="level-item has-text-centered">
+      <div class="level-left"> 
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "Sign Up", signup_path %></a>
         </p>
-        <p class="level-item has-text-centered">
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "Log In", login_path %></a>
         </p>
-        <p class="level-item has-text-centered">
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "Blog", "https://leonorpdx.github.io/cookbook_community_sinatra_project" %></a>
         </p>
-        <p class="level-item has-text-centered">
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "Video", "https://www.youtube.com/watch?v=4tjBlS7e9Ug" %></a>
         </p>
-        <p class="level-item has-text-centered">
+        <p class="level-item">
         <a class="navbar-item"><%= link_to "GitHub", "https://github.com/LeonorPDX/sinatra-crud-cookbook-community/" %></a>
         </p>
+      </div>
       <% end %>
     </div>
   </nav>
@@ -73,10 +85,10 @@
   <footer class="footer">
   <div class="content has-text-centered">
     <p>
-      <strong>The Hikers App</strong> by <a href="https://www.linkedin.com/in/leonorcolbert/">Leonor Colbert</a>. &copy; 2020
+      <strong>The Hikers App</strong> by <a href="https://www.linkedin.com/in/leonorcolbert/">Leonor Colbert</a> &copy; 2020
     </p>
   </div>
 </footer>
-  </body>
+</body>
   
 </html>
