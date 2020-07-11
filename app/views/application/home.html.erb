@@ -7,28 +7,42 @@
     </div>
 </section>
 <br>
-<section class="content">
-<div>
-<p>
-The Hikers App is a place for hikers to find trailheads and hikes, as well as share their own hikes. Users can also check-in at trailheads, leave trip reports on hikes, and view other users' check-ins and trip reports. This allows users to learn more about how busy a given trailhead is, and the current conditions on various trails.
-</p>
-<p>
-The Hikers App is a Rails web application created by Leonor Colbert as a portfolio project in association with Flatiron School's Online Software Engineering Program.
-</p>
+
+<div class="columns">
+  <div class="column">
+        <section class="content">
+        <div>
+        <br>
+        <p>
+        <strong>The Hikers App</strong> is a place for hikers to find trailheads and hikes, as well as share their own hikes. Users can also check-in at trailheads, leave trip reports on hikes, and view other users' check-ins and trip reports. This allows users to learn more about how busy a given trailhead is, and the current conditions on various trails.
+        </p>
+        <p>
+        The Hikers App is a Rails web application created by Leonor Colbert as a portfolio project in association with Flatiron School's Online Software Engineering Program.
+        </p>
+        </div>
+        </section>
+
+        <% if @trailheads && !@trailheads.empty? %>
+            <h3>Trailheads that fit your search:</h3>
+            <%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
+        <% end %>
+
+        <% if @hikes && !@hikes.empty? %>
+            <h3>Hikes that fit your search:</h3>
+            <%= render partial: "hikes/list", locals: {hikes: @hikes} %>
+        <% end %>
+
+        <% if @hikes && @hikes.empty? && @trailheads && @trailheads.empty? %>
+            <h3>No hikes or trailheads fit your search.</h3>
+            <p>Try a different search term and search again.</p>
+        <% end %>
+  </div>
+  <div class="column">
+    <figure>
+        <p class="image">
+            <img src="https://i.imgur.com/GtoQclE.jpg?4">
+        </p>
+    </figure>
+  </div>
 </div>
-</section>
 
-<% if @trailheads && !@trailheads.empty? %>
-    <h3>Trailheads that fit your search:</h3>
-    <%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
-<% end %>
-
-<% if @hikes && !@hikes.empty? %>
-    <h3>Hikes that fit your search:</h3>
-    <%= render partial: "hikes/list", locals: {hikes: @hikes} %>
-<% end %>
-
-<% if @hikes && @hikes.empty? && @trailheads && @trailheads.empty? %>
-    <h3>No hikes or trailheads fit your search.</h3>
-    <p>Try a different search term and search again.</p>
-<% end %>

@@ -6,18 +6,25 @@
     </div>
 </section>
 <br>
-<div>
-<%= link_to "Create a New Hike", new_hike_path %>
-</div>
-<br>
-<div>
-<%= form_tag(hikes_path, method: "get") do %>
-    <h3>Filter hikes by features:</h3>
-    <%= select_tag :filter, options_for_select([ ['Mountains'], ['Beaches'], ['Waterfalls'], ['Wildflowers'], ['Family-friendly'], ['Dog-friendly'] ]) %><br><br>
-    <input type="submit" value="Filter Hikes" class="button is-primary is-small"><br>
-<% end %>
+
+<div class="columns">
+<div class="column">
+    <div>
+    <strong><%= link_to "Create a New Hike", new_hike_path %></strong>
+    </div>
+    <br>
+    <div>
+    <%= form_tag(hikes_path, method: "get") do %>
+        <h3>Filter hikes by features</h3>
+        <%= select_tag :filter, options_for_select([ ['Mountains'], ['Beaches'], ['Waterfalls'], ['Wildflowers'], ['Family-friendly'], ['Dog-friendly'] ]) %><br><br>
+        <input type="submit" value="Filter Hikes" class="button is-primary"><br>
+    <% end %>
+    </div>
 </div>
 
-<div>
-<%= render partial: "list", locals: {hikes: @hikes} %>
+<div class="column">
+    <div>
+    <%= render partial: "list", locals: {hikes: @hikes} %>
+    </div>
+</div>
 </div>

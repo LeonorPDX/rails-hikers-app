@@ -7,7 +7,7 @@
 </section>
 <br>
 <% if @hike.user == current_user %>
-    <%= link_to "Edit Hike", edit_hike_path(@hike) %>
+    <strong><%= link_to "Edit Hike", edit_hike_path(@hike) %></strong>
 <% else %>
     <i>Created by <%= link_to @hike.user.name, user_path(@hike.user) %></i>
 <% end %>
@@ -31,8 +31,8 @@
 <h3>Leave a Trip Report:</h3>
 <%= form_tag(trip_reports_path, method: "post") do %>
     <%= hidden_field_tag "hike_id", @hike.id %>
-    Rating: <%= select_tag :rating, options_for_select([ [''], ['5 Stars', 5], ['4 Stars', 4], ['3 Stars', 3], ['2 Stars', 2], ['1 Stars', 1] ]) %><br>
-    Trip Report:<br>
+    <strong>Rating:</strong> <%= select_tag :rating, options_for_select([ [''], ['5 Stars', 5], ['4 Stars', 4], ['3 Stars', 3], ['2 Stars', 2], ['1 Stars', 1] ]) %><br>
+    <strong>Trip Report:</strong><br>
     <textarea name="content", rows="10", cols="80"></textarea><br>
     <input type="submit" value="Submit Trip Report" class="button is-primary">
 <% end %>
@@ -47,7 +47,7 @@
         <article class="media">
             <figure class="media-left">
                 <p class="image is-64x64">
-                    <img src="https://i.imgur.com/BL0Uz4V.png">
+                    <img class="is-rounded" src="https://i.imgur.com/1lG4sCo.png">
                 </p>
             </figure>
             <div class="media-content">
@@ -55,7 +55,9 @@
                 <p>
                     <strong><%= format_tr_date tr %>: <%= link_to tr.user.name, user_path(tr.user) %></strong><br>
                     <% if tr.rating %>
-                        <%= tr.rating %> Stars<br>
+                    <% n = tr.rating %>
+                        <%= n %> Stars<br>
+                        <% n.times do %>&bigstar;<% end %><br>
                     <% end %>
                     <br>
                     <%= tr.content %>

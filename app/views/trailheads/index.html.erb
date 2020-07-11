@@ -6,15 +6,22 @@
     </div>
 </section>
 <br>
-<div>
-<%= link_to "Create a New Trailhead", new_trailhead_path %>
-</div>
-<br>
-<div>
-<h3>Want the most popular trailhead?</h3>
-<%= link_to "Click here", trailheads_most_check_ins_path %> to view the trailhead with the most check-ins.
+
+<div class="columns">
+<div class="column">
+    <div>
+    <strong><%= link_to "Create a New Trailhead", new_trailhead_path %></strong>
+    </div>
+    <br>
+    <div>
+    <h3>Want the most popular trailhead?</h3>
+    <%= link_to "Click here", trailheads_most_check_ins_path %> to view the trailhead with the most check-ins.
+    </div>
 </div>
 
-<div>
-<%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
+<div class="column">
+    <div>
+    <%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
+    </div>
+</div>
 </div>
