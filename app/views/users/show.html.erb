@@ -7,7 +7,7 @@
 
 <% unless @trailheads.empty? %>
     <h3>Trailheads that <%= @user.name %> has been to:</h3>
-    <%= render partial: "trailheads/list", locals: {trailheads: @trailheads} %>
+    <%= render partial: "trailheads/list", locals: {trailheads: @trailheads.uniq} %>
 <% end %>
 
 <% unless @check_ins.empty? %>
