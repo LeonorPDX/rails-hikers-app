@@ -1,24 +1,17 @@
-# README
+# Welcome to the Hikers App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Hikers App is a place for hikers to find trailheads and hikes, as well as share their own hikes. Users can also check-in at trailheads, leave trip reports on hikes, and view other users' check-ins and trip reports. This allows users to learn more about how busy a given trailhead is, and the current conditions on various trails.
 
-Things you may want to cover:
+This app was developed as a portfolio project for Flatiron School's Online Software Engineering Program. The user registrations and sessions was created with Devise, third-party provider registrations with Omniauth, and CSS styling with Bulma.
 
-* Ruby version
+## Installation
+* Clone this repo
+* Run bundle
+* Run rails s
+* Open your browser to localhost:3000
 
-* System dependencies
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/LeonorPDX/rails-hikers-app
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+The project is available as open source under the terms of the MIT License.
