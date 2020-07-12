@@ -21,11 +21,31 @@
 
 <% unless @trip_reports.empty? %>
     <h3><%= @user.name %>'s Trip Reports:</h3>
-    <ul>
+    
     <% @trip_reports.each do |tr| %>
-        <li><%= format_tr_date tr %>: <%= link_to tr.hike.name, hike_path(tr.hike) %><br>
-        <%= tr.rating %> Stars<br>
-        <%= tr.content %></li>
+
+        <article class="media">
+        <figure class="media-left">
+            <p class="image is-64x64">
+                <img class="is-rounded" src="https://i.imgur.com/1lG4sCo.png">
+            </p>
+        </figure>
+        <div class="media-content">
+            <div class="content">
+            <p>
+                <strong><%= format_tr_date tr %>: <%= link_to tr.hike.name, hike_path(tr.hike) %></strong><br>
+                <% if tr.rating %>
+                <% n = tr.rating %>
+                    <%= n %> Stars<br>
+                    <% n.times do %>&bigstar;<% end %><br>
+                <% end %>
+                <br>
+                <%= tr.content %>
+            </p>
+            </div>
+        </div>
+        </article>
+
     <% end %>
-    </ul>
+    
 <% end %>
